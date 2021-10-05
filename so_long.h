@@ -2,6 +2,7 @@
 # define SO_LONG_H
 
 # include <mlx.h>
+# include <stdlib.h>
 
 # define TEXTURE_WIDTH 32
 # define TEXTURE_HEIGHT 32
