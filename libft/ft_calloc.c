@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 12:53:29 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/06 18:36:26 by tblaase          ###   ########.fr       */
+/*   Created: 2021/10/06 18:35:23 by tblaase           #+#    #+#             */
+/*   Updated: 2021/10/06 18:35:27 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
+void	*ft_calloc(size_t nelem, size_t elsize)
+/* mallocs for the size of nelem * elsize and sets everything to NULL*/
+{
+	char			*ptr;
+	unsigned int	i;
 
-int		ft_atoi(const char *str);
-void	*ft_calloc(size_t nelem, size_t elsize);
-int		ft_count_c(char *s, char c);
-int		ft_count_lines(int fd);
-int		ft_line_length(int fd);
-char	*ft_strchr(const char *s, int c);
-size_t	ft_strlen(const char *s);
-
-#endif
+	i = 0;
+	ptr = (char *)malloc(nelem * elsize);
+	if (!ptr)
+		return (NULL);
+	while (i < nelem * elsize)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
+}

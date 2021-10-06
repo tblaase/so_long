@@ -6,7 +6,7 @@
 #    By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 10:57:58 by tblaase           #+#    #+#              #
-#    Updated: 2021/10/06 14:19:13 by tblaase          ###   ########.fr        #
+#    Updated: 2021/10/06 18:58:05 by tblaase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,9 @@ LIBFT_PATH = libft/
 LIBFT_LIB = $(LIBFT_PATH)libft.a
 
 CFILES = \
-		hook.c\
 		map.c\
+		move.c\
+		put_imgs.c\
 		so_long.c\
 
 OBJECTS = $(CFILES:.c=.o)
@@ -43,7 +44,7 @@ compile:
 	$(CC) $(CFLAGS) -Imlx -c $(CFILES)
 
 $(NAME): subsystems compile
-	$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJECTS) $(MLX_LIB) $(LIBFT_LIB) -o $(NAME)
+	$(CC) -g $(CFLAGS) $(MLX_FLAGS) $(OBJECTS) $(MLX_LIB) $(LIBFT_LIB) -o $(NAME)
 
 clean:
 	make -C $(MLX_PATH) clean

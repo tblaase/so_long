@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:42:26 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/06 16:38:05 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/06 19:33:15 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_data
 typedef struct s_map
 {
 	char	**boder;
+	void	*object;
 	int		x;
 	int		y;
 }				t_map;
@@ -58,7 +59,8 @@ void	ft_map_error(t_data *data, char **argv);
 void	ft_window_size(t_data *data, char **argv);
 int		ft_key_hook(int keycode, t_data *data);
 void	ft_create_map(t_data *data, char **argv, t_map *map);
-void	ft_put_border(t_data *data, t_map *map);
-void	ft_put_player(t_data *data);
+void	ft_put_object(t_data *data, t_map *map, char *relative_path);
+// void	ft_put_border(t_data *data, t_map *map);
+void	ft_put_player(t_data *data, t_map *map);
 
 #endif
