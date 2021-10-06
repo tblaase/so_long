@@ -1,18 +1,4 @@
 #include "so_long.h"
-#include <stdio.h>
-
-typedef struct s_vars
-{
-	void	*mlx;
-	void	*player;
-	void	*background;
-	void	*win;
-	int		windowsize_x;
-	int		windowsize_y;
-	int		x;
-	int		y;
-	int		counter;
-}				t_vars;
 
 int	key_hook(int keycode, t_vars *vars)
 {
