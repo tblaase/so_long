@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:39:11 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/07 16:51:40 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/07 19:25:58 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ static void	ft_collect(t_data *data, t_map *map)
 {
 	data->collected++;
 	map->map[data->player_y][data->player_x] = '0';
+	mlx_put_image_to_window(data->mlx, data->win, data->background,
+		(data->player_x * TEXTURE_WIDTH), (data->player_y * TEXTURE_HEIGHT));
+	mlx_put_image_to_window(data->mlx, data->win, data->player,
+		(data->player_x * TEXTURE_WIDTH), (data->player_y * TEXTURE_HEIGHT));
 }
 
 void	ft_move(t_data *data, t_map *map, char position, int direction)

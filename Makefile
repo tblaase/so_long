@@ -6,7 +6,7 @@
 #    By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 10:57:58 by tblaase           #+#    #+#              #
-#    Updated: 2021/10/07 18:32:54 by tblaase          ###   ########.fr        #
+#    Updated: 2021/10/07 19:13:30 by tblaase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ LIBFT_PATH = libft/
 LIBFT_LIB = $(LIBFT_PATH)libft.a
 
 CFILES = \
+		init.c\
 		key_hook.c\
 		map.c\
 		move.c\

@@ -6,14 +6,14 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 13:54:00 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/06 14:00:31 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:59:51 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 int	ft_atoi(const char *str)
-/* will find the first number inside a string and return this number as integer */
+/* will find the first number inside a string and return this number as int */
 {
 	int	c;
 	int	i;

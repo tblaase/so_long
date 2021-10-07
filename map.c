@@ -6,17 +6,11 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:32:53 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/07 18:39:00 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/07 19:19:18 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_map_error(t_data *data, char **argv)
-{
-	(void)data;
-	(void)argv;
-}
 
 void	ft_fill_background(t_data *data)
 {
@@ -58,15 +52,11 @@ void	ft_window_size(t_data *data, char **argv)
 		printf("Error: map has to be .ber\n");
 		exit(EXIT_FAILURE);
 	}
-	data->windowsize_x = ft_line_length(fd);
-	data->windowsize_y = ft_count_lines(fd);
-	printf("%d, %d\n", data->windowsize_x, data->windowsize_y);
-	data->windowsize_x *= TEXTURE_WIDTH;
-	data->windowsize_y *= TEXTURE_HEIGHT;
-	printf("%d, %d\n", data->windowsize_x, data->windowsize_y);
+	data->windowsize_x = (ft_line_length(fd) * TEXTURE_WIDTH);
+	data->windowsize_y = (ft_count_lines(fd) * TEXTURE_HEIGHT);
 	if (data->windowsize_x <= 0 || data->windowsize_y <= 0)
 	{
-		perror("Error: map has no valid dimensions");
+		printf("Error: map has no valid dimensions");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -77,7 +67,6 @@ void	ft_create_map(t_data *data, t_map *map)
 	map->y = 0;
 	while (map->y < (data->windowsize_y / TEXTURE_HEIGHT))
 	{
-		// printf("coordinates put: %d, %d\n", map->x, map->y);
 		if (map->map[map->y][map->x] == 'P')
 			ft_put_player(data, map);
 		else if (map->map[map->y][map->x] == '1')

@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:42:26 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/07 18:28:58 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/07 19:22:55 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_data
 /* ********** all of my functions ********** */
 
 void	ft_fill_background(t_data *data);
-void	ft_map_error(t_data *data, char **argv);
+// void	ft_map_error(t_data *data, char **argv);
 void	ft_window_size(t_data *data, char **argv);
 int		ft_key_hook(int keycode, t_data *data);
 void	ft_create_map(t_data *data, t_map *map);
@@ -79,5 +79,6 @@ void	ft_win(t_data *data);
 int		ft_mouse_hook(int mousecode, t_data *data);
 void	ft_move(t_data *data, t_map *map, char position, int direction);
 int		ft_exit(t_data *data);
+void	ft_init(t_data *data, char **argv);
 
 #endif

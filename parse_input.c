@@ -6,11 +6,17 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:14:33 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/07 14:37:55 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/07 19:27:16 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	ft_input_error(t_map *map)
+{
+	(void)map;
+	// check for input errors of the map!!!!!!!!!
+}
 
 void	ft_parse_input(t_map *map, char **argv)
 {
@@ -35,4 +41,5 @@ void	ft_parse_input(t_map *map, char **argv)
 		else
 			i++;
 	}
+	ft_input_error(map);
 }
