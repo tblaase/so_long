@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:42:26 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/06 19:33:15 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/07 18:28:58 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,29 @@
 
 # define TEXTURE_WIDTH 32
 # define TEXTURE_HEIGHT 32
+# define ESC 53
 # define W 13
 # define A 0
 # define S 1
 # define D 2
+# define UP -1
+# define DOWN 1
+# define LEFT -1
+# define RIGHT 1
+# define ON_KLICK "1L<<2"
+# define X 17
+// x: 7 bis 20
+// y: -4 bis -19
+
+/* ***** struct to create the map and keep track of the contents ***** */
+
+typedef struct s_map
+{
+	char	**map;
+	void	*object;
+	int		x;
+	int		y;
+}				t_map;
 
 /* ***** struct to hand all of my programms data between functions ***** */
 
@@ -40,17 +59,9 @@ typedef struct s_data
 	int		player_x;
 	int		player_y;
 	int		counter;
+	int		collected;
+	t_map	*map;
 }				t_data;
-
-/* ***** struct to create the map and keep track of the borders ***** */
-
-typedef struct s_map
-{
-	char	**boder;
-	void	*object;
-	int		x;
-	int		y;
-}				t_map;
 
 /* ********** all of my functions ********** */
 
@@ -58,9 +69,15 @@ void	ft_fill_background(t_data *data);
 void	ft_map_error(t_data *data, char **argv);
 void	ft_window_size(t_data *data, char **argv);
 int		ft_key_hook(int keycode, t_data *data);
-void	ft_create_map(t_data *data, char **argv, t_map *map);
+void	ft_create_map(t_data *data, t_map *map);
 void	ft_put_object(t_data *data, t_map *map, char *relative_path);
 // void	ft_put_border(t_data *data, t_map *map);
 void	ft_put_player(t_data *data, t_map *map);
+void	ft_parse_input(t_map *map, char **argv);
+void	ft_putbackground(t_data *data);
+void	ft_win(t_data *data);
+int		ft_mouse_hook(int mousecode, t_data *data);
+void	ft_move(t_data *data, t_map *map, char position, int direction);
+int		ft_exit(t_data *data);
 
 #endif

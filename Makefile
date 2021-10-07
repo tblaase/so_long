@@ -6,7 +6,7 @@
 #    By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 10:57:58 by tblaase           #+#    #+#              #
-#    Updated: 2021/10/06 18:58:05 by tblaase          ###   ########.fr        #
+#    Updated: 2021/10/07 18:32:54 by tblaase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,13 @@ LIBFT_PATH = libft/
 LIBFT_LIB = $(LIBFT_PATH)libft.a
 
 CFILES = \
+		key_hook.c\
 		map.c\
 		move.c\
+		parse_input.c\
 		put_imgs.c\
 		so_long.c\
+		win.c\
 
 OBJECTS = $(CFILES:.c=.o)
 

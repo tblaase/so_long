@@ -6,7 +6,7 @@
 #    By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 12:53:31 by tblaase           #+#    #+#              #
-#    Updated: 2021/10/06 18:35:52 by tblaase          ###   ########.fr        #
+#    Updated: 2021/10/07 17:08:02 by tblaase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ CFILES = \
 		ft_count_lines.c\
 		ft_line_length.c\
 		ft_strchr.c\
+		ft_strjoin.c\
 		ft_strlen.c\
+		ft_strnstr.c\
 
 OBJECTS = $(CFILES:.c=.o)
 
