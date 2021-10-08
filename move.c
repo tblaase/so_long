@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:39:11 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 11:07:37 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 13:47:14 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,58 @@
 
 static void	ft_player_move(t_data *data, char position, int direction)
 {
-	if (position == 'y' && direction == -1)
+	if (position == 'y' && direction == UP)
 	{
 		mlx_put_image_to_window(data->mlx, data->win, data->img->player_up,
-			(data->player_x * IMG_W), (data->player_y * IMG_H));
+			(data->p_x * IMG_W), (data->p_y * IMG_H));
 	}
-	if (position == 'x' && direction == -1)
+	if (position == 'x' && direction == LEFT)
 	{
 		mlx_put_image_to_window(data->mlx, data->win, data->img->player_left,
-			(data->player_x * IMG_W), (data->player_y * IMG_H));
+			(data->p_x * IMG_W), (data->p_y * IMG_H));
 	}
-	if (position == 'y' && direction == 1)
+	if (position == 'y' && direction == DOWN)
 	{
 		mlx_put_image_to_window(data->mlx, data->win, data->img->player_down,
-			(data->player_x * IMG_W), (data->player_y * IMG_H));
+			(data->p_x * IMG_W), (data->p_y * IMG_H));
 	}
-	if (position == 'x' && direction == 1)
+	if (position == 'x' && direction == RIGHT)
 	{
 		mlx_put_image_to_window(data->mlx, data->win, data->img->player_right,
-			(data->player_x * IMG_W), (data->player_y * IMG_H));
+			(data->p_x * IMG_W), (data->p_y * IMG_H));
 	}
 }
 
-static void	ft_collect(t_data *data, char position, int direction)
+static void	ft_collect(t_data *data, char pos, int dir)
 {
 	data->collected++;
-	data->map->map[data->player_y][data->player_x] = '0';
+	data->map->map[data->p_y][data->p_x] = '0';
 	mlx_put_image_to_window(data->mlx, data->win, data->img->background,
-		(data->player_x * IMG_W), (data->player_y * IMG_H));
-	ft_player_move(data, position, direction);
+		(data->p_x * IMG_W), (data->p_y * IMG_H));
+	ft_player_move(data, pos, dir);
 }
 
-void	ft_move(t_data *data, char position, int direction)
+void	ft_move(t_data *data, char pos, int dir)
 {
-	// if (position == 'y')
-	// {
-	// 	if (map->map[data->player_y + 1 * direction][data->player_x] == '1')
-	// 		return ;
-	// }
-	// if (position == 'x')
-	// {
-	// 	if (map->map[data->player_y][data->player_x + 1 * direction] == '1')
-	// 		return ;
-	// }
 	mlx_put_image_to_window(data->mlx, data->win, data->img->background,
-		(data->player_x * IMG_W), (data->player_y * IMG_H));
-	if (position == 'y' && data->map->map[data->player_y + 1 * direction][data->player_x] != '1')
-		data->player_y = data->player_y + 1 * direction;
-	else if (position == 'x' && data->map->map[data->player_y][data->player_x + 1 * direction] != '1')
-		data->player_x = data->player_x + 1 * direction;
-	ft_player_move(data, position, direction);
-	if (data->map->map[data->player_y][data->player_x] == 'C')
-		ft_collect(data, position, direction);
+		(data->p_x * IMG_W), (data->p_y * IMG_H));
+	if (pos == 'y' && data->map->map[data->p_y + 1 * dir][data->p_x] != '1'
+		&& (data->map->map[data->p_y + 1 * dir][data->p_x] != 'E'
+		|| data->collected == data->map->diamonds))
+		data->p_y = data->p_y + 1 * dir;
+	else if (pos == 'x' && data->map->map[data->p_y][data->p_x + 1 * dir] != '1'
+		&& (data->map->map[data->p_y][data->p_x + 1 * dir] != 'E'
+		|| data->collected == data->map->diamonds))
+		data->p_x = data->p_x + 1 * dir;
+	else if (pos == 'y' && data->map->map[data->p_y + 1 * dir][data->p_x] == 'E'
+		&& data->collected != data->map->diamonds)
+		printf("collect all diamonds before leaving\n");
+	else if (pos == 'x' && data->map->map[data->p_y][data->p_x + 1 * dir] == 'E'
+		&& data->collected != data->map->diamonds)
+		printf("collect all diamonds before leaving\n");
+	ft_player_move(data, pos, dir);
+	if (data->map->map[data->p_y][data->p_x] == 'C')
+		ft_collect(data, pos, dir);
 	mlx_do_sync(data->mlx);
+	printf("You moved %d times.\n", ++data->counter);
 }

@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:51:04 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 10:50:48 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 13:44:10 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int	ft_key_hook(int keycode, t_data *data)
 		ft_move(data, 'y', DOWN);
 	else if (keycode == D)
 		ft_move(data, 'x', RIGHT);
-	printf("You moved %d times.\n", ++data->counter);
-	if (data->map->map[data->player_y][data->player_x] == 'E')
+	if (data->map->map[data->p_y][data->p_x] == 'E')
 		ft_win(data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:42:26 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 11:22:19 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 13:10:16 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
-	int		windowsize_x;
-	int		windowsize_y;
-	int		player_x;
-	int		player_y;
+	int		size_x;
+	int		size_y;
+	int		p_x;
+	int		p_y;
 	int		counter;
 	int		collected;
 	t_map	*map;
