@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:32:53 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/07 19:19:18 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 11:05:58 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	ft_fill_background(t_data *data)
 {
 	int		x;
 	int		y;
-	int		img_width;
-	int		img_height;
-	char	*relative_path;
+	// int		img_width;
+	// int		img_height;
+	// char	*relative_path;
 
-	relative_path = "./textures/nightsky.xpm";
-	data->background = mlx_xpm_file_to_image(data->mlx, relative_path,
-			&img_width, &img_height);
+	// relative_path = "./textures/nightsky.xpm";
+	// data->img->background = mlx_xpm_file_to_image(data->mlx, relative_path,
+	// 		&img_width, &img_height);
 	y = 0;
 	while (y < data->windowsize_y)
 	{
@@ -30,10 +30,10 @@ void	ft_fill_background(t_data *data)
 		while (x < data->windowsize_x)
 		{
 			mlx_put_image_to_window(data->mlx, data->win,
-				data->background, x, y);
-			x += TEXTURE_WIDTH;
+				data->img->background, x, y);
+			x += IMG_W;
 		}
-		y += TEXTURE_HEIGHT;
+		y += IMG_H;
 	}
 }
 
@@ -52,8 +52,8 @@ void	ft_window_size(t_data *data, char **argv)
 		printf("Error: map has to be .ber\n");
 		exit(EXIT_FAILURE);
 	}
-	data->windowsize_x = (ft_line_length(fd) * TEXTURE_WIDTH);
-	data->windowsize_y = (ft_count_lines(fd) * TEXTURE_HEIGHT);
+	data->windowsize_x = (ft_line_length(fd) * IMG_W);
+	data->windowsize_y = (ft_count_lines(fd) * IMG_H);
 	if (data->windowsize_x <= 0 || data->windowsize_y <= 0)
 	{
 		printf("Error: map has no valid dimensions");
@@ -61,26 +61,26 @@ void	ft_window_size(t_data *data, char **argv)
 	}
 }
 
-void	ft_create_map(t_data *data, t_map *map)
+void	ft_create_map(t_data *data)
 {
-	map->x = 0;
-	map->y = 0;
-	while (map->y < (data->windowsize_y / TEXTURE_HEIGHT))
+	data->map->x = 0;
+	data->map->y = 0;
+	while (data->map->y < (data->windowsize_y / IMG_H))
 	{
-		if (map->map[map->y][map->x] == 'P')
-			ft_put_player(data, map);
-		else if (map->map[map->y][map->x] == '1')
-			ft_put_object(data, map, "./textures/asteroid.xpm");
-		else if (map->map[map->y][map->x] == 'C')
-			ft_put_object(data, map, "./textures/gemstone.xpm");
-		else if (map->map[map->y][map->x] == 'E')
-			ft_put_object(data, map, "./textures/galaxy.xpm");
-		if (map->x < (data->windowsize_x / TEXTURE_WIDTH))
-			map->x++;
+		if (data->map->map[data->map->y][data->map->x] == 'P')
+			ft_put_player(data);
+		else if (data->map->map[data->map->y][data->map->x] == '1')
+			ft_put_object(data, "./textures/wall.xpm");
+		else if (data->map->map[data->map->y][data->map->x] == 'C')
+			ft_put_object(data, "./textures/collectable.xpm");
+		else if (data->map->map[data->map->y][data->map->x] == 'E')
+			ft_put_object(data, "./textures/exit.xpm");
+		if (data->map->x < (data->windowsize_x / IMG_W))
+			data->map->x++;
 		else
 		{
-			map->y++;
-			map->x = 0;
+			data->map->y++;
+			data->map->x = 0;
 		}
 	}
 }
