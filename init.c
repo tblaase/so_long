@@ -6,13 +6,14 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:07:33 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 13:33:33 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 15:11:03 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 static void	ft_init_help(t_data *data)
+/* only exists because of the 25 line limit */
 {
 	char	*relative_path;
 	int		img_width;
@@ -27,6 +28,7 @@ static void	ft_init_help(t_data *data)
 }
 
 void	ft_init(t_data *data, t_map *map)
+/* initialises most of my used data inside the structs */
 {
 	char	*relative_path;
 	int		img_width;

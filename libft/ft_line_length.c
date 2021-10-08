@@ -6,14 +6,14 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:42:17 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/06 15:54:45 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 15:09:49 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 int	ft_line_length(int fd)
-/* this function will find the length of the first line in a document */
+/* this function will find the length of the first line in a file */
 {
 	char	buffer[1];
 	int		length;

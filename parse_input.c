@@ -6,22 +6,21 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:14:33 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 13:50:54 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 15:31:34 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 static void	ft_map_error(char *error_msg)
+/* will print the error message end exit the process */
 {
 	printf("%s", error_msg);
-	//
-	system("leaks so_long");
-	//
 	exit(EXIT_FAILURE);
 }
 
 static void	ft_check_borders(t_data *data)
+/* will check if the whole map is surrounded by walls */
 {
 	int	x;
 	int	y;
@@ -51,6 +50,7 @@ static void	ft_check_borders(t_data *data)
 }
 
 static void	ft_check_content(t_data *data)
+/* will check the contents of the map if valid */
 {
 	int	y;
 	int	exit;
@@ -76,6 +76,7 @@ static void	ft_check_content(t_data *data)
 }
 
 static void	ft_input_error(int	argc)
+/* only exists because of the 25 line limit */
 {
 	if (argc != 2)
 	{
@@ -85,6 +86,7 @@ static void	ft_input_error(int	argc)
 }
 
 void	ft_parse_input(t_data *data, char **argv, int argc)
+/* will translate the .ber file into a 2-dimensional array of char * */
 {
 	int		fd;
 	int		i;

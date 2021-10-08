@@ -6,13 +6,14 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:04:13 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 13:17:26 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 15:22:07 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_putbackground(t_data *data)
+void	ft_put_background(t_data *data)
+/* will fill the whole screen with background */
 {
 	int		y;
 	int		x;
@@ -32,6 +33,7 @@ void	ft_putbackground(t_data *data)
 }
 
 void	ft_put_object(t_data *data, char *relative_path)
+/* puts the given object to the current position */
 {
 	int		img_width;
 	int		img_height;
@@ -43,6 +45,7 @@ void	ft_put_object(t_data *data, char *relative_path)
 }
 
 void	ft_put_player(t_data *data)
+/* puts the player in the starting position */
 {
 	data->p_x = data->map->x;
 	data->p_y = data->map->y;

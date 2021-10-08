@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:42:26 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 13:10:16 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 15:26:10 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,13 @@ typedef struct s_data
 
 /* ********** all of my functions ********** */
 
-void	ft_fill_background(t_data *data);
 void	ft_window_size(t_data *data, char **argv);
 int		ft_key_hook(int keycode, t_data *data);
 void	ft_create_map(t_data *data);
 void	ft_put_object(t_data *data, char *relative_path);
 void	ft_put_player(t_data *data);
 void	ft_parse_input(t_data *data, char **argv, int argc);
-void	ft_putbackground(t_data *data);
+void	ft_put_background(t_data *data);
 void	ft_win(t_data *data);
 int		ft_mouse_hook(int mousecode, t_data *data);
 void	ft_move(t_data *data, char position, int direction);

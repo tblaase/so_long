@@ -6,13 +6,15 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:51:04 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 13:44:10 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 15:12:21 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 int	ft_key_hook(int keycode, t_data *data)
+/* will cause the different actions of the valid key presses
+** will cause you to win if you reached the exit */
 {
 	if (keycode == ESC)
 		ft_exit(data);
