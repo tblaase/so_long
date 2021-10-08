@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:39:11 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 15:15:29 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/10/08 15:38:37 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void	ft_move(t_data *data, char pos, int dir)
 		data->p_x = data->p_x + 1 * dir;
 	else if (pos == 'y' && data->map->map[data->p_y + 1 * dir][data->p_x] == 'E'
 		&& data->collected != data->map->diamonds)
-		printf("collect all diamonds before leaving\n");
+		printf("Collect all diamonds before leaving\n");
 	else if (pos == 'x' && data->map->map[data->p_y][data->p_x + 1 * dir] == 'E'
 		&& data->collected != data->map->diamonds)
-		printf("collect all diamonds before leaving\n");
+		printf("Collect all diamonds before leaving\n");
 	ft_player_move(data, pos, dir);
 	if (data->map->map[data->p_y][data->p_x] == 'C')
 		ft_collect(data, pos, dir);
