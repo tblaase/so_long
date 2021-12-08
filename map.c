@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 12:32:53 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 15:22:19 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/12/08 16:18:08 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_window_size(t_data *data, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	data->size_x = (ft_line_length(fd) * IMG_W);
-	data->size_y = (ft_count_lines(fd) * IMG_H);
+	data->size_y = (ft_count_lines(fd, data->size_x, IMG_W) * IMG_H);
 }
 
 void	ft_create_map(t_data *data)

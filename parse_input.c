@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 12:14:33 by tblaase           #+#    #+#             */
-/*   Updated: 2021/10/08 15:31:34 by tblaase          ###   ########.fr       */
+/*   Updated: 2021/12/08 14:36:05 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_parse_input(t_data *data, char **argv, int argc)
 		bytes = read(fd, buffer, 1);
 		if (bytes != 1)
 			break ;
-		if (buffer[0] != '\n')
+		if (buffer[0] != '\n' && buffer[0] != '\0')
 		{
 			data->map->map[i] = ft_strjoin(data->map->map[i], buffer);
 		}
