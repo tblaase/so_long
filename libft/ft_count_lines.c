@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:25:07 by tblaase           #+#    #+#             */
-/*   Updated: 2021/12/08 17:16:04 by tblaase          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:09:53 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,27 @@ void	exit_error(void)
 int	ft_count_lines(int fd, int x, int img_w)
 /* returns how many lines the file of fd contains */
 {
-	char	buffer[1];
+	char	*line;
 	int		linecount;
-	int		bytes;
 	int		i;
 
 	i = 0;
-	buffer[0] = '\0';
 	linecount = 1;
-	bytes = 1;
-	while (bytes == 1)
+	while (1)
 	{
-		bytes = read(fd, buffer, 1);
-		if (bytes != 1 && i != (x / img_w))
-			exit_error();
-		if (i == (x / img_w))
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		if ((int)ft_strlen(line) < x / img_w || (ft_strlen(line) == 1 && *line != '\n'))
 		{
-			linecount++;
-			i = 0;
+			free(line);
+			exit_error();
 		}
 		else
-			i++;
+		{
+			free(line);
+			linecount++;
+		}
 	}
 	return (linecount);
 }

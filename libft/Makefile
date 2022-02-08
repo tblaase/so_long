@@ -6,7 +6,7 @@
 #    By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 12:53:31 by tblaase           #+#    #+#              #
-#    Updated: 2021/12/08 17:20:31 by tblaase          ###   ########.fr        #
+#    Updated: 2022/02/08 16:56:27 by tblaase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 Y = "\033[33m"
 R = "\033[31m"
@@ -34,6 +34,8 @@ CFILES = \
 		ft_strjoin.c\
 		ft_strlen.c\
 		ft_strnstr.c\
+		get_next_line_utils.c\
+		get_next_line.c
 
 OBJECTS = $(CFILES:.c=.o)
 

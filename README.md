@@ -7,20 +7,21 @@ This projects goal is to create your own 2D game where you have a map that can h
 
 ### Map
 A valid map is structured as followed:<br>
-- 1 player (P)
-- at least 1 exit (E)
-- at least 1 collectible (C)
+- 1 player (`P`)
+- at least 1 exit (`E`)
+- at least 1 collectible (`C`)`
 - is recatangular
-- has a solid outside border out of walls (1)
-- all the empty spaces are filled with 0
+- has a solid outside border out of walls (`1`)
+- all the empty spaces are filled with `0`
 - map has to be `.ber`
 - no other characters than:
-  * P
-  * E
-  * C
-  * 1
-  * 0
+  * `P`
+  * `E`
+  * `C`
+  * `1`
+  * `0`
 - i.e. `map1.ber`:
+- one new line after the map is valid, if there is anything else, it is not valid
 
 ```
 1111111111111
