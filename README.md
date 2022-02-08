@@ -5,6 +5,12 @@ This is my solution for the so_long project of the core curriculum of 42 school.
 
 This projects goal is to create your own 2D game where you have a map that can have different dimensions and contents.<br>
 
+### Requirements to run the game
+Only tested on **macOS Catalina (Version 10.15.7)**.<br>
+For all other OS it is not guaranteed to work.<br>
+OpenGL and AppKit is required to run it.<br>
+If you want to run it on Linux [here](https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#compilation-on-linux) is a tutorial that might help and [here](https://github.com/42Paris/minilibx-linux) is the required version of miniLibX, this is **not tested** with my so_long.<br>
+
 ### Map
 A valid map is structured as followed:<br>
 - 1 player (`P`)
