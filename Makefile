@@ -6,7 +6,7 @@
 #    By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/06 10:57:58 by tblaase           #+#    #+#              #
-#    Updated: 2022/02/08 16:42:56 by tblaase          ###   ########.fr        #
+#    Updated: 2022/02/08 17:34:11 by tblaase          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,4 +81,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+norm:
+	norminette libft init.c key_hook.c map.c move.c parse_input.c put_imgs.c so_long.c so_long.h win.c
+
+.PHONY: all clean fclean re norm

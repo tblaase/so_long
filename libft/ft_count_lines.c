@@ -6,7 +6,7 @@
 /*   By: tblaase <tblaase@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 15:25:07 by tblaase           #+#    #+#             */
-/*   Updated: 2022/02/08 17:09:53 by tblaase          ###   ########.fr       */
+/*   Updated: 2022/02/08 17:19:29 by tblaase          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	ft_count_lines(int fd, int x, int img_w)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		if ((int)ft_strlen(line) < x / img_w || (ft_strlen(line) == 1 && *line != '\n'))
+		if ((int)ft_strlen(line) < x / img_w
+			|| (ft_strlen(line) == 1 && *line != '\n'))
 		{
 			free(line);
 			exit_error();
