@@ -25,7 +25,7 @@ char	*ft_strjoin(char *s1, const char *s2)
 	i = 0;
 	i2 = 0;
 	c = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (c == '\0')
+	if (c == (void *) 0)
 		return (0);
 	while (s1 && s1[i] != '\0')
 	{
